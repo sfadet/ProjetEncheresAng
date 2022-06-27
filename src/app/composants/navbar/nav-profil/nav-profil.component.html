@@ -1,2 +1,21 @@
-<button *ngIf="!isLogged" (click)="connect()">se connecter</button>
-<button *ngIf="isLogged" (click)="disconnect()">se déconnecter</button>
+<ul  *ngIf="!isLogged" class="navbar-nav me-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a routerLink="/login">S'inscrire - Se connecter</a>
+  </li>
+</ul>
+
+<ul *ngIf="isLogged" class="navbar-nav me-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a routerLink="">Ecnhères</a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="">Vendre un article</a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="">Mon Profil</a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="" (click)="disconnect()">Déconnexion</a>
+  </li>
+</ul>
+
