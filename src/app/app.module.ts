@@ -14,6 +14,10 @@ import { UpdateUserComponent } from './composants/user/update-user/update-user.c
 import { DetailEnchereComponent } from './composants/encheres/detail-enchere/detail-enchere.component';
 import { CarteEnchereComponent } from './composants/encheres/carte-enchere/carte-enchere.component';
 import { AjoutEnchereComponent } from './composants/encheres/ajout-enchere/ajout-enchere.component';
+import { ListeArticlesComponent } from './composants/articles/liste-articles/liste-articles.component';
+import { DetailArticlesComponent } from './composants/articles/detail-article/detail-articles.component';
+import { CarteArticlesComponent } from './composants/articles/carte-articles/carte-articles.component';
+import { AjoutArticleComponent } from './composants/articles/ajout-article/ajout-article.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { AjoutEnchereComponent } from './composants/encheres/ajout-enchere/ajout
     UpdateUserComponent,
     DetailEnchereComponent,
     CarteEnchereComponent,
-    AjoutEnchereComponent
+    AjoutEnchereComponent,
+    ListeArticlesComponent,
+    DetailArticlesComponent,
+    CarteArticlesComponent,
+    AjoutArticleComponent
   ],
   imports: [
     BrowserModule,
