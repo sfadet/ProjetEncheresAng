@@ -5,8 +5,8 @@ import {CreateUserComponent} from "./composants/user/create-user/create-user.com
 import {ListeEncheresComponent} from "./composants/encheres/liste-encheres/liste-encheres.component";
 import {UpdateUserComponent} from "./composants/user/update-user/update-user.component";
 import {LoginGuard} from "./guards/login.guard";
-import {AjoutEnchereComponent} from "./componants/ajout-enchere/ajout-enchere.component";
-import {DetailEnchereComponent} from "./componants/detail-enchere/detail-enchere.component";
+import {AjoutEnchereComponent} from "./composants/encheres/ajout-enchere/ajout-enchere.component";
+import {DetailEnchereComponent} from "./composants/encheres/detail-enchere/detail-enchere.component";
 
 const routes: Routes = [
   {path: 'profil', component: UpdateUserComponent, canActivate: [LoginGuard]},

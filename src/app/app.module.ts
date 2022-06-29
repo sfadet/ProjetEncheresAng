@@ -11,9 +11,9 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ListeEncheresComponent } from './composants/encheres/liste-encheres/liste-encheres.component';
 import { UpdateUserComponent } from './composants/user/update-user/update-user.component';
-import { DetailEnchereComponent } from './componants/detail-enchere/detail-enchere.component';
-import { CarteEnchereComponent } from './componants/carte-enchere/carte-enchere.component';
-import { AjoutEnchereComponent } from './componants/ajout-enchere/ajout-enchere.component';
+import { DetailEnchereComponent } from './composants/encheres/detail-enchere/detail-enchere.component';
+import { CarteEnchereComponent } from './composants/encheres/carte-enchere/carte-enchere.component';
+import { AjoutEnchereComponent } from './composants/encheres/ajout-enchere/ajout-enchere.component';
 
 @NgModule({
   declarations: [
