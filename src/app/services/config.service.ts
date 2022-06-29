@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
 
   // url de l'API
-  private apiPath = "http://10.103.200.4:8080/ProjetENI/ws";
+  private apiPath = "http://10.103.200.1:8080/ProjetENI";
 
   constructor() { }
 

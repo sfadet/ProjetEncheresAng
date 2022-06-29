@@ -36,6 +36,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * Se déconnecter du site
+   */
   public disconnect(){
     this.loginSvc.disconnect();
   }

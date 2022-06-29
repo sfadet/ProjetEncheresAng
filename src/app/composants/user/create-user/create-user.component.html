@@ -6,31 +6,31 @@
         <div class="row mb-3">
           <label for="pseudo" class="col-sm-4 col-form-label">Pseudo <span *ngIf="pseudo == ''" class="red">*</span><span *ngIf="pseudo != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="pseudo" name="pseudo" [ngModel]="pseudo" (ngModelChange)="changePseudo($event)">
+            <input type="text" class="form-control" id="pseudo" name="pseudo" [ngModel]="pseudo" (ngModelChange)="changePseudo($event)" tabindex="1">
           </div>
         </div>
         <div class="row mb-3">
           <label for="prenom" class="col-sm-4 col-form-label">Prénom <span *ngIf="prenom == ''" class="red">*</span><span *ngIf="prenom != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="prenom" name="prenom" [ngModel]="prenom" (ngModelChange)="changePrenom($event)">
+            <input type="text" class="form-control" id="prenom" name="prenom" [ngModel]="prenom" (ngModelChange)="changePrenom($event)" tabindex="3">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="tel" class="col-sm-4 col-form-label">Téléphone</label>
+          <label for="tel" class="col-sm-4 col-form-label">Téléphone <span *ngIf="tel == ''" class="red">*</span><span *ngIf="tel != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="tel" name="tel" ngModel>
+            <input type="text" class="form-control" id="tel" name="tel"  [ngModel]="tel" (ngModelChange)="changeTel($event)" tabindex="5">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="cp" class="col-sm-4 col-form-label">Code postal</label>
+          <label for="cp" class="col-sm-4 col-form-label">Code postal <span *ngIf="cp == ''" class="red">*</span><span *ngIf="cp != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="cp" name="cp" ngModel>
+            <input type="text" class="form-control" id="cp" name="cp" [ngModel]="cp" (ngModelChange)="changeCP($event)" tabindex="7">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="password1" class="col-sm-4 col-form-label">Mot de passe</label>
+          <label for="password1" class="col-sm-4 col-form-label">Mot de passe <span *ngIf="passw == ''" class="red">*</span><span *ngIf="passw != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="password" class="form-control" id="password1" name="password1" ngModel>
+            <input type="password" class="form-control" id="password1" name="password1" [ngModel]="passw" (ngModelChange)="changePassw($event)" tabindex="9">
           </div>
         </div>
       </div>
@@ -39,43 +39,42 @@
         <div class="row mb-3">
           <label for="nom" class="col-sm-4 col-form-label">Nom <span *ngIf="nom == ''" class="red">*</span><span *ngIf="nom != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="nom" name="nom"  [ngModel]="nom" (ngModelChange)="changeNom($event)">
+            <input type="text" class="form-control" id="nom" name="nom" [ngModel]="nom" (ngModelChange)="changeNom($event)" tabindex="2">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="email" class="col-sm-4 col-form-label">Email</label>
+          <label for="email" class="col-sm-4 col-form-label">Email <span *ngIf="email == ''" class="red">*</span><span *ngIf="email != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="Email" class="form-control" id="email" name="email" ngModel>
+            <input type="Email" class="form-control" id="email" name="email" [ngModel]="email" (ngModelChange)="changeEmail($event)" tabindex="4">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="rue" class="col-sm-4 col-form-label">Rue</label>
+          <label for="rue" class="col-sm-4 col-form-label">Rue <span *ngIf="rue == ''" class="red">*</span><span *ngIf="rue != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="rue" name="rue" ngModel>
+            <input type="text" class="form-control" id="rue" name="rue" [ngModel]="rue" (ngModelChange)="changeRue($event)" tabindex="6">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="ville" class="col-sm-4 col-form-label">Ville</label>
+          <label for="ville" class="col-sm-4 col-form-label">Ville <span *ngIf="ville == ''" class="red">*</span><span *ngIf="ville != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="text" class="form-control" id="ville" name="ville" ngModel>
+            <input type="text" class="form-control" id="ville" name="ville" [ngModel]="ville" (ngModelChange)="changeVille($event)" tabindex="8">
           </div>
         </div>
         <div class="row mb-3">
-          <label for="password2" class="col-sm-4 col-form-label">Confirmation</label>
+          <label for="password2" class="col-sm-4 col-form-label">Confirmation <span *ngIf="passwVerif == ''" class="red">*</span><span *ngIf="passwVerif != ''" class="green">*</span></label>
           <div class="col-sm-8">
-            <input type="password" class="form-control" id="password2" name="password2" ngModel>
+            <input type="password" class="form-control redBorder" id="password2" name="password2" [ngModel]="passwVerif" (ngModelChange)="changePasswVerif($event)" tabindex="10">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-2"></div>
         <div class="col-3 row">
-          <button type="button" class="btn btn-success btn-lg btn-block" [disabled]="!verifForm()">Créer</button>
-          <button type="button" class="btn btn-success btn-lg btn-block" (click)="createUser()">Créer 2</button>
+          <button type="button" class="btn btn-success btn-lg btn-block" [disabled]="!verifForm()" (click)="createUser()" tabindex="11">Créer</button>
         </div>
         <div class="col-2"></div>
         <div class="col-3 row">
-          <button type="button" class="btn btn-danger btn-lg btn-block">Annuler</button>
+          <button type="button" class="btn btn-danger btn-lg btn-block" (click)="cancel()" tabindex="12">Annuler</button>
         </div>
         <div class="col-2"></div>
       </div>

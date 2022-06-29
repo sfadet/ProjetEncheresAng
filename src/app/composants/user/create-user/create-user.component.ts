@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-user',
@@ -19,16 +20,32 @@ export class CreateUserComponent implements OnInit {
   public passw: string = "";
   public passwVerif: string = "";
 
-  constructor(private userSvc: UserService) { }
+  constructor(private userSvc: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+
+  /**
+   * Fonction appelée depuis le bouton 'Créer' de la page HTML
+   * Elle utilise le service 'UserService' pour insérer l'utilisateur en BD
+   * Elle redirige enfin l'utilisateur vers la page de login
+   */
   public createUser(){
-    this.userSvc.addUser()
-      .subscribe(data => {
-        console.log(data)
-      })
+    let userJson= '{"pseudo":"'+this.pseudo+'", "nom":"'+this.nom+'", "prenom":"'+this.prenom+'", "email":"'+this.email+'", ';
+    userJson+='"telephone":"'+this.tel+'", "rue":"'+this.rue+'", "codePostal":"'+this.cp+'", "ville":"'+this.ville+'", ';
+    userJson+='"motDePasse":"'+this.passw+'", "credit":5, "administrateur":false, "achats":[],"ventes":[],"encheres":[]}';
+    console.log(userJson);
+    this.userSvc.addUser(userJson);
+    this.router.navigate(['/login']);
+  }
+
+  /**
+   * Fonction appelée depuis le bouton 'Annuler' de la page HTML
+   * Elle redirige vers l'accueil
+   */
+  public cancel(){
+    this.router.navigate(['/']);
   }
 
   /**
@@ -36,7 +53,19 @@ export class CreateUserComponent implements OnInit {
    * Ce qui active ou non le bouton 'Créer' sur la page
    */
   public verifForm(): boolean {
-    return (this.verifPseudo() ? true : false);
+    return (
+      this.verifPseudo() &&
+      this.verifNom() &&
+      this.verifPrenom() &&
+      this.verifEmail() &&
+      this.verifTel() &&
+      this.verifRue() &&
+      this.verifCP() &&
+      this.verifVille() &&
+      this.verifPassw() &&
+      this.verifPasswVerif() &&
+      this. verifSamePassword() &&
+      this.verifVille() ? true : false);
   }
 
   /** GESTION DU PSEUDO **/
@@ -123,5 +152,64 @@ export class CreateUserComponent implements OnInit {
     return (this.rue == '' ? false :  true);
   }
 
+  /** GESTION DU CODE POSTAL **/
+  /**
+   * Récupère la valeur de l'input 'cp' quand celui-ci est modifié
+   */
+  public changeCP(value: string) {
+    this.cp = value;
+  }
+  /**
+   * Vérifie que le 'rue' n'est pas null
+   */
+  public verifCP():boolean {
+    return (this.cp == '' ? false :  true);
+  }
+
+  /** GESTION DE LA VILLE **/
+  /**
+   * Récupère la valeur de l'input 'ville' quand celui-ci est modifié
+   */
+  public changeVille(value: string) {
+    this.ville = value;
+  }
+  /**
+   * Vérifie que le 'rue' n'est pas null
+   */
+  public verifVille():boolean {
+    return (this.ville == '' ? false :  true);
+  }
+
+  /** GESTION DU MOT DE PASSE **/
+  /**
+   * Récupère la valeur de l'input 'passw' quand celui-ci est modifié
+   */
+  public changePassw(value: string) {
+    this.passw = value;
+  }
+  /**
+   * Vérifie que le 'rue' n'est pas null
+   */
+  public verifPassw():boolean {
+    return (this.passw == '' ? false :  true);
+  }
+
+  /** GESTION DU MOT DE PASSE DE VERIFICATION **/
+  /**
+   * Récupère la valeur de l'input 'passwVerif' quand celui-ci est modifié
+   */
+  public changePasswVerif(value: string) {
+    this.passwVerif = value;
+  }
+  /**
+   * Vérifie que le 'rue' n'est pas null
+   */
+  public verifPasswVerif():boolean {
+    return (this.passwVerif == '' && this.verifSamePassword() ? false :  true);
+  }
+
+  public verifSamePassword(): boolean {
+    return (this.passwVerif === this.passw ? true : false);
+  }
 
 }
