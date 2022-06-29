@@ -1,0 +1,9 @@
+.img-vignette{
+  max-width: 200px;
+  object-fit: contain;
+}
+
+label{
+
+  padding-right : 5px;
+}

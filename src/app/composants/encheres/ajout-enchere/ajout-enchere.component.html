@@ -1,1 +1,76 @@
-<p>ajout-enchere works!</p>
+<div>
+  <div class="d-flex justify-content-center py-2 h3">Nouvelle vente</div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-2">
+    <img class="img-fluid img-vignette " src="https://upload.wikimedia.org/wikipedia/commons/0/04/Croix_Mundolsheim.png"
+         alt="croix">
+      </div>
+      <div class="col-4">
+      <form #NouvelleVente="ngForm">
+
+        <div>
+          <label class="my-2" for="nom_article">Article : </label>
+          <input type="text" class="my-2" id="nom_article" name="nom_article" ngModel>
+        </div>
+
+        <div>
+          <label class="my-2" for="description_article">Description : </label>
+          <input type="text" class="my-2" id="description_article" name="description_article" ngModel>
+        </div>
+
+        <div>
+          <label class="my-2 " for="categorie_article">Catégorie : </label>
+          <select class="my-2" name="categorie_article" id="categorie_article">
+            <option value="">--Choisir une catégorie--</option>
+            <option value="informatique">Informatique</option>
+            <option value="bricolage">Bricolage</option>
+            <option value="decoration">Decoration</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="my-2" for="photo_article">Photo de l'article : </label>
+          <button class="my-2" id="photo_article" name="photo_article">Uploader</button>
+        </div>
+
+        <div>
+          <label class="my-2" for="prix_initial">Mise à prix :</label>
+          <input type="number" class="my-2" id="prix_initial" name="prix_initial" ngModel>
+        </div>
+
+        <div>
+          <label class="my-2" for="date_debut">Début de l'enchère :</label>
+          <input type="date" class="my-2" id="date_debut" name="date_debut" ngModel>
+        </div>
+        <div>
+          <label class="my-2" for="date_fin">Fin de l'enchère :</label>
+          <input type="date" class="my-2" id="date_fin" name="date_fin" ngModel>
+        </div>
+
+        <fieldset class="border p-2">
+
+          <legend class="float-none w-auto">Retrait</legend>
+          <div class="d-flex flex-column">
+            <label for="rue">Rue : </label>
+            <input type="text" id="rue" name="rue">
+
+            <label for="code_postal">Code postal : </label>
+            <input type="text" id="code_postal" name="code_postal">
+
+            <label for="ville">Ville : </label>
+            <input type="text" id="ville" name="ville">
+          </div>
+
+        </fieldset>
+        <div class="d-flex flex-row ">
+          <button class="btn btn-success btn-lg btn-block m-1">Enregistrer</button>
+          <button class="btn btn-success btn-lg btn-block m-1">Annuler</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+</div>
