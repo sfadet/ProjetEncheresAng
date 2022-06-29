@@ -1,1 +1,83 @@
-<p>create-user works!</p>
+<div class="container addUser">
+  <h1>Mon Profil</h1>
+  <hr>
+  <form class="row">
+    <div class="col-5">
+        <div class="row mb-3">
+          <label for="pseudo" class="col-sm-4 col-form-label">Pseudo <span *ngIf="pseudo == ''" class="red">*</span><span *ngIf="pseudo != ''" class="green">*</span></label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="pseudo" name="pseudo" [ngModel]="pseudo" (ngModelChange)="changePseudo($event)">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="prenom" class="col-sm-4 col-form-label">Prénom <span *ngIf="prenom == ''" class="red">*</span><span *ngIf="prenom != ''" class="green">*</span></label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="prenom" name="prenom" [ngModel]="prenom" (ngModelChange)="changePrenom($event)">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="tel" class="col-sm-4 col-form-label">Téléphone</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="tel" name="tel" ngModel>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="cp" class="col-sm-4 col-form-label">Code postal</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="cp" name="cp" ngModel>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="password1" class="col-sm-4 col-form-label">Mot de passe</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" id="password1" name="password1" ngModel>
+          </div>
+        </div>
+      </div>
+    <div class="col-2"></div>
+    <div class="col-5">
+        <div class="row mb-3">
+          <label for="nom" class="col-sm-4 col-form-label">Nom <span *ngIf="nom == ''" class="red">*</span><span *ngIf="nom != ''" class="green">*</span></label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="nom" name="nom"  [ngModel]="nom" (ngModelChange)="changeNom($event)">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="email" class="col-sm-4 col-form-label">Email</label>
+          <div class="col-sm-8">
+            <input type="Email" class="form-control" id="email" name="email" ngModel>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="rue" class="col-sm-4 col-form-label">Rue</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="rue" name="rue" ngModel>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="ville" class="col-sm-4 col-form-label">Ville</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="ville" name="ville" ngModel>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="password2" class="col-sm-4 col-form-label">Confirmation</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" id="password2" name="password2" ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3 row">
+          <button type="button" class="btn btn-success btn-lg btn-block" [disabled]="!verifForm()">Créer</button>
+          <button type="button" class="btn btn-success btn-lg btn-block" (click)="createUser()">Créer 2</button>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-3 row">
+          <button type="button" class="btn btn-danger btn-lg btn-block">Annuler</button>
+        </div>
+        <div class="col-2"></div>
+      </div>
+  </form>
+</div>

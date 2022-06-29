@@ -9,6 +9,11 @@ import { LoginComponent } from './composants/user/login/login.component';
 import { CreateUserComponent } from './composants/user/create-user/create-user.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ListeEncheresComponent } from './composants/encheres/liste-encheres/liste-encheres.component';
+import { UpdateUserComponent } from './composants/user/update-user/update-user.component';
+import { DetailEnchereComponent } from './componants/detail-enchere/detail-enchere.component';
+import { CarteEnchereComponent } from './componants/carte-enchere/carte-enchere.component';
+import { AjoutEnchereComponent } from './componants/ajout-enchere/ajout-enchere.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import {HttpClientModule} from "@angular/common/http";
     TopNavbarComponent,
     NavProfilComponent,
     LoginComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ListeEncheresComponent,
+    UpdateUserComponent,
+    DetailEnchereComponent,
+    CarteEnchereComponent,
+    AjoutEnchereComponent
   ],
   imports: [
     BrowserModule,
