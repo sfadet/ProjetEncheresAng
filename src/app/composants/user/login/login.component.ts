@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
-import {Utilisateur} from "../../../modeles/Utilisateur";
 import {Router} from "@angular/router";
 
 @Component({
@@ -34,13 +33,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.errorMsg = "Le login et le mot de passe doivent être renseignés";
     }
-  }
-
-  /**
-   * Se déconnecter du site
-   */
-  public disconnect(){
-    this.loginSvc.disconnect();
   }
 
 }

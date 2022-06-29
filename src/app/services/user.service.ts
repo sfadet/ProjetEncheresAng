@@ -2,7 +2,7 @@ import {EventEmitter, Injectable } from '@angular/core';
 import {ConfigService} from "./config.service";
 import {Utilisateur} from "../modeles/Utilisateur";
 import {firstValueFrom} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -63,12 +63,6 @@ export class UserService {
 
 
   public addUser(addUser: string) {
-    // const options = {headers: new HttpHeaders({
-    //     'content-type':'application/json',
-    //     'Access-Control-Allow-Origin':'*',
-    //     'Access-Control-Allow-Methods':'*'
-    // })}
-
     return this.http.post(this.config.getApiPath()+'/servlet/addUtilisateur', addUser).subscribe(
       data => console.log(data)
     )

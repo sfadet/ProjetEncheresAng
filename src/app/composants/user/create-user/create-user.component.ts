@@ -64,8 +64,8 @@ export class CreateUserComponent implements OnInit {
       this.verifVille() &&
       this.verifPassw() &&
       this.verifPasswVerif() &&
-      this. verifSamePassword() &&
-      this.verifVille() ? true : false);
+      this.verifSamePassword() &&
+      this.verifVille());
   }
 
   /** GESTION DU PSEUDO **/
@@ -79,7 +79,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'pseudo' n'est pas null
    */
   public verifPseudo():boolean {
-    return (this.pseudo == '' ? false :  true);
+    return (this.pseudo != '');
   }
 
   /** GESTION DU NOM **/
@@ -93,7 +93,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'nom' n'est pas null
    */
   public verifNom():boolean {
-    return (this.nom == '' ? false :  true);
+    return (this.nom != '');
   }
 
   /** GESTION DU PRENOM **/
@@ -107,7 +107,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'prenom' n'est pas null
    */
   public verifPrenom():boolean {
-    return (this.prenom == '' ? false :  true);
+    return (this.prenom != '');
   }
 
   /** GESTION DU EMAIL **/
@@ -121,7 +121,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'email' n'est pas null
    */
   public verifEmail():boolean {
-    return (this.email == '' ? false :  true);
+    return (this.email != '');
   }
 
   /** GESTION DU TELEPHONE **/
@@ -135,7 +135,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'tel' n'est pas null
    */
   public verifTel():boolean {
-    return (this.tel == '' ? false :  true);
+    return (this.tel != '');
   }
 
   /** GESTION DE LA RUE **/
@@ -149,7 +149,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'rue' n'est pas null
    */
   public verifRue():boolean {
-    return (this.rue == '' ? false :  true);
+    return (this.rue != '');
   }
 
   /** GESTION DU CODE POSTAL **/
@@ -163,7 +163,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'rue' n'est pas null
    */
   public verifCP():boolean {
-    return (this.cp == '' ? false :  true);
+    return (this.cp != '');
   }
 
   /** GESTION DE LA VILLE **/
@@ -177,7 +177,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'rue' n'est pas null
    */
   public verifVille():boolean {
-    return (this.ville == '' ? false :  true);
+    return (this.ville != '');
   }
 
   /** GESTION DU MOT DE PASSE **/
@@ -191,7 +191,7 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'rue' n'est pas null
    */
   public verifPassw():boolean {
-    return (this.passw == '' ? false :  true);
+    return (this.passw != '');
   }
 
   /** GESTION DU MOT DE PASSE DE VERIFICATION **/
@@ -205,11 +205,11 @@ export class CreateUserComponent implements OnInit {
    * Vérifie que le 'rue' n'est pas null
    */
   public verifPasswVerif():boolean {
-    return (this.passwVerif == '' && this.verifSamePassword() ? false :  true);
+    return (!(this.passwVerif == '' && this.verifSamePassword()));
   }
 
   public verifSamePassword(): boolean {
-    return (this.passwVerif === this.passw ? true : false);
+    return (this.passwVerif === this.passw);
   }
 
 }
