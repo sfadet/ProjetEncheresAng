@@ -67,5 +67,11 @@ export class UserService {
       data => console.log(data)
     )
   }
+
+  public updateUser(updateUser: string) {
+    return this.http.put(this.config.getApiPath()+'/servlet/UpdateUtilisateur', updateUser).subscribe(
+      data => console.log(data)
+    )
+  }
 }
 

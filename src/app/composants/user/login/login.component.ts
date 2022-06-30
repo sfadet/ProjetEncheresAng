@@ -28,8 +28,12 @@ export class LoginComponent implements OnInit {
 
   public log(data: any){
     if(data.login != "" && data.password != ""){
-      this.loginSvc.getUserByLoginAndPassword(data.login, data.password);
-      this.errorMsg = "";
+      let isConnected: boolean = this.loginSvc.getUserByLoginAndPassword(data.login, data.password);
+      if(isConnected) {
+        this.errorMsg = "";
+      } else {
+        this.errorMsg = "Impossible de se connecter. Login ou mot de passe invalide.";
+      }
     } else {
       this.errorMsg = "Le login et le mot de passe doivent être renseignés";
     }
