@@ -1,1 +1,10 @@
+.input-group-text {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 
+}
+
+label{
+
+  padding-right : 5px;
+}
