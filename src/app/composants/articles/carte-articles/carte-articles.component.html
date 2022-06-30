@@ -1,25 +1,18 @@
-<div class="border border-secondary m-2">
-  <div class="container">
-    <div class="row ">
-      <div class="col-6 d-flex flex-column justify-content-center">
-        <img class="img-fluid img-vignette"
-             src="https://upload.wikimedia.org/wikipedia/commons/0/04/Croix_Mundolsheim.png" alt="croix">
-      </div>
-      <div class="col-6 d-flex flex-column justify-content-center">
-        <div class="text-decoration-underline">PC Gamer pour travailler</div>
-        <div class="d-flex flex-row ">
-          <div>Prix : </div>
-          <div> 210 points</div>
+<div class="shadow mb-5 bg-body rounded carteArticle">
+    <ng-container *ngIf="article">
+      <a routerLink="/article/{{url}}">
+        <div class="row">
+          <div class="col-4">
+            <img class="img-fluid" [src]="img" (error)="setDefaultPic()"  [alt]="article.nomArticle">
+          </div>
+          <div class="col-8">
+            <h4>{{article.nomArticle}}</h4>
+            <p><span class="label">Prix</span><span class="info">{{article.miseAPrix}}</span></p>
+            <p><span class="label">Fin de l'enchère</span><span class="info"></span></p>
+            <p><span class="label">Vendeur</span><span class="info">{{article.noUtilisateurVendeur}}</span></p>
+            <p>{{url}}</p>
+          </div>
         </div>
-        <div class="d-flex flex-row ">
-          <div>Fin de l'enchère : </div>
-          <div> 10/08/2018</div>
-        </div>
-        <div class="d-flex flex-row ">
-          <div>Vendeur : </div>
-          <div> jojo44</div>
-        </div>
-      </div>
-    </div>
-  </div>
+      </a>
+    </ng-container>
 </div>

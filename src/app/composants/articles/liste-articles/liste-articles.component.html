@@ -1,4 +1,4 @@
-<div class="m-2">
+<div class="container">
   <div class="h5">Filtres :</div>
   <form #RechercheArticle="ngForm">
     <div class="input-group mb-3">
@@ -32,3 +32,9 @@
     <app-carte-articles></app-carte-articles>
   </div>
 </div>
+<div class="container-fluid row">
+  <app-carte-articles *ngFor="let article of articles" [article]="article" class="col-4"></app-carte-articles>
+</div>
+
+
+

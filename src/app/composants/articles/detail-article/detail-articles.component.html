@@ -1,10 +1,12 @@
-<div >
+<div class="container">
+  <ng-container *ngIf="article">
+    {{article | json}}
   <div class="d-flex justify-content-center py-2 h3">Détail vente</div>
   <div class="d-flex flex-row align-items-start justify-content-center">
     <img class="img-fluid img-vignette " src="https://upload.wikimedia.org/wikipedia/commons/0/04/Croix_Mundolsheim.png"
          alt="croix">
     <div>
-      <h3 id="nom_article" class="h4">PC Gamer pour travailler</h3>
+      <h3 id="nom_article" class="h4">{{article.nomArticle}}</h3>
 
       <div class="container ">
         <div class="row">
@@ -87,4 +89,5 @@
 
     </div>
   </div>
+  </ng-container>
 </div>

@@ -10,7 +10,7 @@ import {ListeArticlesComponent} from "./composants/articles/liste-articles/liste
 
 const routes: Routes = [
   {path: 'profil', component: UpdateUserComponent, canActivate: [LoginGuard]},
-  {path: 'detailArticle', component: DetailArticlesComponent},
+  {path: 'article/:id/:nom', component: DetailArticlesComponent},
   {path: 'ajoutArticle', component: AjoutArticleComponent},
   {path: 'creerCompte', component: CreateUserComponent},
   {path: 'login', component: LoginComponent},
