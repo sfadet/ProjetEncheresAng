@@ -1,93 +1,102 @@
 <div class="container">
-  <ng-container *ngIf="article">
-    {{article | json}}
-  <div class="d-flex justify-content-center py-2 h3">Détail vente</div>
-  <div class="d-flex flex-row align-items-start justify-content-center">
-    <img class="img-fluid img-vignette " src="https://upload.wikimedia.org/wikipedia/commons/0/04/Croix_Mundolsheim.png"
-         alt="croix">
-    <div>
-      <h3 id="nom_article" class="h4">{{article.nomArticle}}</h3>
-
-      <div class="container ">
-        <div class="row">
-          <div class="col-2">
-            <div class="my-2">Description :</div>
-          </div>
-          <div class="col-3 ">
-            <p class="my-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto consequuntur, eum harum minus
-              omnis
-              sapiente vero. At ex id, inventore ipsam itaque nisi omnis quidem saepe suscipit velit, voluptates.</p>
-          </div>
+  <h2>Détail vente</h2>
+      <div class="row" *ngFor="let a of article">
+        <div class="col-3">
+          <img class="img-fluid" [src]="img" (error)="setDefaultPic()"  [alt]="a.nomArticle">
         </div>
-        <div class="row">
-          <div class="col-2 ">
-            <div class="my-2 ">Catégorie :</div>
+        <div class="col-9">
+          <h1>{{a.nomArticle}}</h1>
+          <hr>
+          <div class="row">
+            <div class="col-3">
+              <p>Description</p>
+            </div>
+            <div class="col-9">
+              <p>{{a.description}}</p>
+            </div>
           </div>
-          <div class="col-3">
-            <div class="my-2">Informatique</div>
+          <div class="row">
+            <div class="col-3">
+              <p>Catégorie</p>
+            </div>
+            <div class="col-9">
+              <p>{{a.categorie.libelle}}</p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="my-2">Meilleure offre :</div>
+          <div class="row">
+            <div class="col-3">
+              <p>Meilleure offre</p>
+            </div>
+            <div class="col-9">
+              <p *ngIf="a.encheres">{{a.encheres[0].montantEnchere}} pts, par {{a.encheres[0].noUtilisateur}} le {{formatDate(a.encheres[0].dateEnchere)}}</p>
+            </div>
           </div>
-          <div class="col-3">
-            <div class="my-2">210 pts par Bob</div>
+          <div class="row">
+            <div class="col-3">
+              <p>Mise à prix</p>
+            </div>
+            <div class="col-9">
+              <p>{{a.miseAPrix}} points</p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="my-2">Mise à prix :</div>
+          <div class="row">
+            <div class="col-3">
+              <p>Début de l'enchère</p>
+            </div>
+            <div class="col-9">
+              <p>{{formatDate(a.dateDebutEncheres)}}</p>
+            </div>
           </div>
-          <div class="col-3">
-            <div class="my-2">185 pts</div>
+          <div class="row">
+            <div class="col-3">
+              <p>Fin de l'enchère</p>
+            </div>
+            <div class="col-9">
+              <p>{{formatDate(a.dateFinEncheres)}}</p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="my-2">Fin de l'enchère :</div>
+          <div class="row">
+            <div class="col-3">
+              <p>Retrait</p>
+            </div>
+            <div class="col-9">
+              <p>{{a.lieuRetrait.rue}}</p>
+              <p>{{a.lieuRetrait.codePostal}} {{a.lieuRetrait.ville}}</p>
+            </div>
           </div>
-          <div class="col-3">
-            <div class="my-2">09/10/2018</div>
+          <div class="row">
+            <div class="col-3">
+              <p>Vendeur</p>
+            </div>
+            <div class="col-9">
+              <p>{{a.pseudoVendeur}}</p>
+            </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-2">
-            <div class="my-2">Retrait :</div>
+          <div class="row shadow mb-5 rounded enchere" *ngIf="isLogged">
+            <div class="col-3">
+              <p>Ma proposition</p>
+            </div>
+            <div class="col-2">
+              <input  type="number"class="form-control" id="montantEnchere" name="montantEnchere" [ngModel]="montantEnchere" [min]="a.encheres[0].montantEnchere+1">
+            </div>
+            <div class="col-3">
+              <p>(crédits disponibles : {{getCredit()}})</p>
+            </div>
+            <div class="col-4">
+              <button type="button" class="btn btn-success btn-block" routerLink="/login">Enchérir</button>
+            </div>
           </div>
-          <div class="col-3">
-            <div class="my-2">
-              <div>10 allée des Alouettes</div>
-              <div>44830 Saint Herblain</div>
+          <div class="row shadow mb-5 rounded enchere" *ngIf="!isLogged">
+            <h5 class="text-center">Proposer une enchère ?</h5>
+            <hr>
+            <div class="col-5 row">
+              <button type="button" class="btn btn-success btn-lg btn-block" routerLink="/login">Se connecter</button>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5 row">
+              <button type="button" class="btn btn-primary btn-lg btn-block" routerLink="/creerCompte">Créer un compte</button>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-2 ">
-            <div class="my-2">Vendeur :</div>
-          </div>
-          <div class="col-3 ">
-            <div class="my-2">jojo44</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="my-2">Ma proposition :</div>
-          </div>
-          <div class="col-3">
-            <input  class="my-2" type="number" value="100" min="100">
-          </div>
-          <div class="col-3">
-            <button class="btn btn-success btn-lg btn-block" >Enchérir</button>
-          </div>
-        </div>
       </div>
-
-
-
-
-    </div>
-  </div>
-  </ng-container>
 </div>

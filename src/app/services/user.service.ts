@@ -14,11 +14,14 @@ export class UserService {
 
   constructor(private config: ConfigService, private http: HttpClient) { }
 
+  public isLogged2: boolean = false;
+
   /**
    * Permet de savoir qu'un utilisateur est connecté
    */
   public connect(){
     this.isLogged.emit(true);
+    this.isLogged2 = true;
   }
 
   /**
@@ -26,6 +29,7 @@ export class UserService {
    */
   public disconnect(){
     this.isLogged.emit(false);
+    this.isLogged2 = false;
   }
 
   /**
@@ -73,5 +77,10 @@ export class UserService {
       data => console.log(data)
     )
   }
+
+  public getIsLogged(): boolean {
+    return this.isLogged2;
+  }
+
 }
 
